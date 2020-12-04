@@ -1,0 +1,18 @@
+GET http://localhost:8080/api/board/getlist
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/board/insertBoard
+Content-Type: application/json
+
+{
+  "title": "TITLE6",
+  "content": "CONTENT6",
+  "writer": "WRITER6",
+  "password": 6,
+  "regdate": "2020-12-06",
+  "cnt": 6
+}
+
+###
