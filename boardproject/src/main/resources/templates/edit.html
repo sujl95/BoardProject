@@ -5,19 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/board/list" method="POST">
+<form action="/board/updateBoard" method="POST">
     <table th:border="1">
         <tr>
+            <th>게시글번호</th>
+            <td><input th:value="${board.seq}" th:name="seq" readonly="readonly"></td>
+        </tr>
+        <tr>
             <th>제목</th>
-            <td><input th:value="${board.title}" th:name="title"> </td>
+            <td><input th:value="${board.title}" th:name="title"></td>
         </tr>
         <tr>
             <th>내용</th>
-            <td><input th:value="${board.content}" th:name="content"> </td>
+            <td><input th:value="${board.content}" th:name="content"></td>
         </tr>
         <tr>
             <th>작성자</th>
-            <td><input th:value="${board.writer}" th:name="writer"> </td>
+            <td><input th:value="${board.writer}" th:name="writer"></td>
         </tr>
         <tr>
             <th>비밀번호</th>
@@ -25,7 +29,7 @@
         </tr>
     </table>
     <div>
-        <input type="submit" value="등록">
+        <input type="submit" value="수정">
         <a href="/board/list">목록</a>
     </div>
 </form>

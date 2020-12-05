@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -42,8 +43,7 @@ public class BoardViewController {
     }
 
     @PostMapping("insertBoard")
-    public String insertBoard(BoardDto boardDto) {
-        System.out.println(boardDto);
+    public String insertBoard(@Valid BoardDto boardDto) {
         boardService.insertBoard(boardDto);
 //        ResponseEntity.ok("success");
 //        ResponseEntity.ok().body("success");
@@ -54,16 +54,19 @@ public class BoardViewController {
     public String edit(@PathVariable("seq") Integer seq,Model model) {
         BoardDto boardDto = boardService.getBoard(seq);
         model.addAttribute("board", boardDto);
-
         return "edit";
     }
 
-    @PostMapping("update")
-    public String updateBoard(BoardDto boardDto) {
+    @PostMapping("/updateBoard")
+    public String updateBoard(@Valid BoardDto boardDto) {
+        boardService.updateBoard(boardDto);
+        return "redirect:/board/list";
+    }
+
+    @PostMapping("/delBoard")
+    public String delBoard(BoardDto boardDto) {
         System.out.println(boardDto);
-        boardService.insertBoard(boardDto);
-//        ResponseEntity.ok("success");
-//        ResponseEntity.ok().body("success");
+        boardService.delBoard(boardDto);
         return "redirect:/board/list";
     }
 

@@ -15,4 +15,8 @@ public interface BoardMapper {
     BoardDto getBoard(Integer seq);
 
     void updateCnt(Integer seq);
+
+    void updateBoard(BoardDto boardDto);
+
+    void delBoard(BoardDto boardDto);
 }

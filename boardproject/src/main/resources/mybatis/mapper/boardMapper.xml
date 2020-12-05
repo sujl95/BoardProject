@@ -25,18 +25,17 @@
         WHERE SEQ = #{SEQ}
     </update>
 
-    <delete id="delete" parameterType="me.thewing.boardproject.domain.BoardDto">
+    <delete id="delBoard" parameterType="me.thewing.boardproject.domain.BoardDto">
         DELETE FROM BOARD
-        WHERE SEQ = #{seq}
-        AND password = #{password}
+        WHERE SEQ = #{seq} AND password = #{password}
     </delete>
 
-    <update id="update" parameterType="me.thewing.boardproject.domain.BoardDto">
+    <update id="updateBoard" parameterType="me.thewing.boardproject.domain.BoardDto">
         UPDATE BOARD SET
         TITLE = #{title},
         CONTENT = #{content},
-        WRITER = #{writer},
-        WHERE SEQ = #{seq}, AND PASSWORD = #{password}
+        WRITER = #{writer}
+        WHERE SEQ = #{seq} AND PASSWORD = #{password}
     </update>
 
 </mapper>

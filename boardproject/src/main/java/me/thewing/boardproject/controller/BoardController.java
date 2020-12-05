@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -36,9 +37,25 @@ public class BoardController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("insertBoard")
-    public String insertBoard(@RequestBody BoardDto boardDto) {
-        boardService.insertBoard(boardDto);
+    public String insertBoard(@RequestBody @Valid BoardDto boardDto) {
+        try {
+            boardService.insertBoard(boardDto);
+            return "success";
+        } catch (Exception e) {
+            return "failed";
+        }
+    }
+
+    @PostMapping("updateBoard")
+    public String updateBoard(@RequestBody @Valid BoardDto boardDto) {
+        boardService.updateBoard(boardDto);
         return "success";
     }
 
+    @PostMapping("delBoard")
+    public String delBoard(BoardDto boardDto) {
+        System.out.println(boardDto);
+        boardService.delBoard(boardDto);
+        return "redirect:/board/list";
+    }
 }

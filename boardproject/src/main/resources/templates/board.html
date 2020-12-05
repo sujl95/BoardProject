@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<form action="/board/delBoard" method="post">
+    <input type="hidden" name="seq" th:value="${board.seq}">
     <table th:border="1">
         <tr>
             <th>제목</th>
@@ -27,7 +29,13 @@
             <td th:text="${board.cnt}"></td>
         </tr>
     </table>
-    <a href="/board/edit" th:href="@{'/board/edit/'+${board.seq}}" th:text="수정"></a>   <a href="/board/list">목록</a>
-
+    <a href="/board/edit" th:href="@{'/board/edit/'+${board.seq}}" th:text="수정"></a>
+    <a href="/board/list">목록</a>
+    <br>
+    <label>비밀번호 입력</label>
+    <input name="password" type="password">
+    <input type="submit" value="삭제">
+    <br>
+</form>
 </body>
 </html>
