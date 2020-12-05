@@ -21,7 +21,6 @@ public class BoardViewController {
     @GetMapping("/list")
     public String list(Model model) {
         List<BoardDto> list = boardService.getList();
-
         model.addAttribute("boards", list);
         return "boardList";
     }
@@ -36,8 +35,6 @@ public class BoardViewController {
 
     @GetMapping("/write")
     public String write() {
-
-
 
         return "write";
     }
@@ -65,7 +62,6 @@ public class BoardViewController {
 
     @PostMapping("/delBoard")
     public String delBoard(BoardDto boardDto) {
-        System.out.println(boardDto);
         boardService.delBoard(boardDto);
         return "redirect:/board/list";
     }

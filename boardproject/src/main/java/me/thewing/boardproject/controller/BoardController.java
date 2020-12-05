@@ -54,7 +54,6 @@ public class BoardController {
 
     @PostMapping("delBoard")
     public String delBoard(BoardDto boardDto) {
-        System.out.println(boardDto);
         boardService.delBoard(boardDto);
         return "redirect:/board/list";
     }
