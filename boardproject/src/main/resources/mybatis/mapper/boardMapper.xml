@@ -4,10 +4,39 @@
 <mapper namespace="me.thewing.boardproject.repository.mapper.BoardMapper">
     <insert id="insertBoard" parameterType="me.thewing.boardproject.domain.BoardDto">
         INSERT INTO BOARD (TITLE, CONTENT, WRITER, PASSWORD, REGDATE, CNT)
-        VALUES (#{title},#{content},#{writer},#{password},now(),#{cnt})
+        VALUES (#{title},#{content},#{writer},#{password},now(),0)
     </insert>
+
     <select id="getBoardList" resultType="me.thewing.boardproject.domain.BoardDto">
         SELECT *
         FROM BOARD
+        ORDER BY SEQ
     </select>
+
+    <select id="getBoard" parameterType="Integer" resultType="me.thewing.boardproject.domain.BoardDto">
+        SELECT *
+        FROM BOARD
+        WHERE SEQ = #{seq}
+    </select>
+
+    <update id="updateCnt" parameterType="Integer">
+        UPDATE BOARD
+        SET CNT = CNT + 1
+        WHERE SEQ = #{SEQ}
+    </update>
+
+    <delete id="delete" parameterType="me.thewing.boardproject.domain.BoardDto">
+        DELETE FROM BOARD
+        WHERE SEQ = #{seq}
+        AND password = #{password}
+    </delete>
+
+    <update id="update" parameterType="me.thewing.boardproject.domain.BoardDto">
+        UPDATE BOARD SET
+        TITLE = #{title},
+        CONTENT = #{content},
+        WRITER = #{writer},
+        WHERE SEQ = #{seq}, AND PASSWORD = #{password}
+    </update>
+
 </mapper>

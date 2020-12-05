@@ -33,9 +33,20 @@ public class BoardControllerTest {
     @MockBean
     BoardService boardService;
 
+    String boardPath = "/api/board";
+
     @Test
     void getList() throws Exception{
-        mockMvc.perform(get("/api/board/getlist"))
+        mockMvc.perform(get(boardPath+"/getlist"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                ;
+    }
+
+    @Test
+    void getBoard() throws Exception {
+
+        mockMvc.perform(get(boardPath+"/getBoard/1"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 ;
@@ -56,7 +67,7 @@ public class BoardControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(test)))
                 .andDo(print())
-//                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
         ;
 
     }

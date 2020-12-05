@@ -1,4 +1,4 @@
-package me.thewing.boardproject;
+package me.thewing.boardproject.controller;
 
 import lombok.RequiredArgsConstructor;
 import me.thewing.boardproject.domain.BoardDto;
@@ -27,17 +27,18 @@ public class BoardController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+    @GetMapping("getBoard/{seq}")
+    public ResponseEntity<?> getBoard(@PathVariable("seq") Integer seq ) {
+        boardService.updateCnt(seq);
+        BoardDto boardDto = boardService.getBoard(seq);
+        return new ResponseEntity<>(boardDto, HttpStatus.OK);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("insertBoard")
     public String insertBoard(@RequestBody BoardDto boardDto) {
         boardService.insertBoard(boardDto);
-//        ResponseEntity.ok("success");
-//        ResponseEntity.ok().body("success");
-
         return "success";
-//        return new ResponseEntity<>("success", HttpStatus.OK);
     }
-
-
 
 }

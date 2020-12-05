@@ -5,7 +5,10 @@ import lombok.*;
 @Getter
 @ToString
 @Builder
+@AllArgsConstructor
 public class BoardDto {
+
+    private Integer seq;
 
     private String title;
 

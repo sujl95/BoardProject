@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+
+    </script>
+    <div class="container">
+        <div>
+            <table th:border="1">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="board : ${boards}">
+                    <td th:text="${board.seq}"></td>
+                    <td>
+                        <a href="board" th:href="@{'/board/board/'+${board.seq}}"th:text="${board.title}" ></a>
+                    </td>
+                    <td th:text="${board.content}"></td>
+                    <td th:text="${board.writer}"></td>
+                    <td th:text="${board.regdate}"></td>
+                    <td th:text="${board.cnt}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="write">글쓰기</a>
+    </div>
+</body>
+</html>

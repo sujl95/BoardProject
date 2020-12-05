@@ -26,6 +26,15 @@ public class BoardService {
     public void insertBoard(BoardDto boardDto) {
         boardMapper.insertBoard(boardDto);
     }
+
+    public BoardDto getBoard(Integer seq) {
+
+        return boardMapper.getBoard(seq);
+    }
+
+    public void updateCnt(Integer seq) {
+        boardMapper.updateCnt(seq);
+    }
 }
 
 

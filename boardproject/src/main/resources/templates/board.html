@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table th:border="1">
+        <tr>
+            <th>제목</th>
+            <td th:text="${board.title}"></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td th:text="${board.content}"></td>
+        </tr>
+        <tr>
+            <th>작성자</th>
+            <td th:text="${board.writer}"></td>
+        </tr>
+        <tr>
+            <th>작성일</th>
+            <td th:text="${board.regdate}"></td>
+        </tr>
+        <tr>
+            <th>조회수</th>
+            <td th:text="${board.cnt}"></td>
+        </tr>
+    </table>
+    <a href="/board/edit" th:href="@{'/board/edit/'+${board.seq}}" th:text="수정"></a>   <a href="/board/list">목록</a>
+
+</body>
+</html>

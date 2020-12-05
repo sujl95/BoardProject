@@ -11,4 +11,8 @@ public interface BoardMapper {
     List<BoardDto> getBoardList();
 
     void insertBoard(BoardDto boardDto);
+
+    BoardDto getBoard(Integer seq);
+
+    void updateCnt(Integer seq);
 }
