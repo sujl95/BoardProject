@@ -18,3 +18,10 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/api/board/getBoard/1
 Accept: application/json
+
+###
+GET https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84&y=37.599191&x=126.716316
+Authorization: KakaoAK 109569371036c4d6f2f7a904ae262661
+Accept: application/json
+###
+

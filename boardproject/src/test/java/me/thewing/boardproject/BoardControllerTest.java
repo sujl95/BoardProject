@@ -71,4 +71,11 @@ public class BoardControllerTest {
         ;
 
     }
+
+    @Test
+    void apiTest() throws Exception {
+        // mockMvc.perform(get("https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84&y=37.599191&x=126.716316")
+        //                     .contentType(MediaType.APPLICATION_JSON)
+    }
+
 }

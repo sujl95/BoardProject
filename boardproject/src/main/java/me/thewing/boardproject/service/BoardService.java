@@ -19,8 +19,7 @@ public class BoardService {
     private final BoardMapper boardMapper;
 
     public List<BoardDto> getList() {
-        List<BoardDto> boardList = boardMapper.getBoardList();
-        return boardList;
+        return boardMapper.getBoardList();
     }
 
     public void insertBoard(BoardDto boardDto) {
