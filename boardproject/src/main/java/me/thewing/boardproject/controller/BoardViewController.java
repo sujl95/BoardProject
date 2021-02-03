@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import lombok.RequiredArgsConstructor;
 import me.thewing.boardproject.domain.BoardDto;
 import me.thewing.boardproject.service.BoardService;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/board")
 public class BoardViewController {
 
-	@Autowired
-	BoardService boardService;
+	private BoardService boardService;
 
 	@GetMapping("/list")
 	public String list(Model model) {
