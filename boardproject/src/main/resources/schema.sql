@@ -10,3 +10,11 @@ create table BOARD
     REGDATE  VARCHAR(50)   not null,
     CNT      INT           not null
 );
+
+CREATE TABLE USER
+(
+    ID       LONG PRIMARY KEY AUTO_INCREMENT,
+    USER_ID  VARCHAR(20) NOT NULL,
+    NAME     VARCHAR(50) NOT NULL,
+    NICKNAME VARCHAR(50) NOT NULL
+);

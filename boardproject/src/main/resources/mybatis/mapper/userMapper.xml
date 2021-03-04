@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.thewing.boardproject.repository.mapper.UserMapper">
+
+    <resultMap id="User" type="me.thewing.boardproject.domain.User">
+        <id property="id" column="ID"/>
+        <result property="userId" column="USER_ID"/>
+        <association property="nameAndNickName" javaType="me.thewing.boardproject.domain.NameAndNickName">
+            <result property="nickname" column="NICKNAME"/>
+            <result property="name" column="Name"/>
+        </association>
+    </resultMap>
+
+    <select id="findById" resultType="me.thewing.boardproject.domain.User" parameterType="java.lang.Long">
+        SELECT *
+        FROM USER;
+    </select>
+
+
+</mapper>

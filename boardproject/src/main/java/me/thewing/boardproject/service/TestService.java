@@ -5,9 +5,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-@Service
-@Transactional
-public class TestService {
-
-}
+// @RequiredArgsConstructor
+// @Service
+// @Transactional
+// public class TestService {
+//
+// }
