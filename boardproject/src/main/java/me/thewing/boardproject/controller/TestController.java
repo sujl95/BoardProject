@@ -85,7 +85,7 @@ public class TestController {
 			} else {
 				value = (String)roadAddress.get("address_name");
 			}
-			if (value.equals("") || value == null) {
+			if (value.equals("")) {
 				subJobj = (JSONObject)jArray.get(1);
 				subJobj = (JSONObject)subJobj.get("address");
 				value = (String)subJobj.get("address_name");
